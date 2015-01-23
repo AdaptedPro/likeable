@@ -24,4 +24,4 @@ def index(request):
         'upload_message' : request.method,
         'form_message' : form_message
     })
-    return HttpResponse(template.render(context)) 
+    return HttpResponse(template.render(context))
