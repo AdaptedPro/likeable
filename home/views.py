@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.shortcuts import render_to_response
 from django.template import RequestContext, loader
+import PIL.Image as Image
 from home.forms import UploadFileForm
 
 def index(request):
@@ -13,7 +14,7 @@ def index(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             #form.save()
-            form_message += 'so good'
+            form_message += form.cleaned_data['imageName'] #'so good'
 #     else:
 #         form = UploadFileForm()
 #     return render_to_response('home/uploaded.html', {'form': form})    

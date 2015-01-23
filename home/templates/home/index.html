@@ -39,6 +39,7 @@
                     <div class="inner cover">
                         <h1 class="cover-heading">{{ message }}.</h1>
                         <form class="lead" action="/" enctype="multipart/form-data" method="post">
+                        	{% csrf_token %}
                             <div class="form-group">
                                 <label for="imageName">Title:</label>
                                 <input type="text" class="form-control" id="imageName" name="imageName" maxlength="40" required>
