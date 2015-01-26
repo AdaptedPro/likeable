@@ -39,34 +39,7 @@
                         </div>
                     </div>
                     <div id="main-content" class="inner cover">
-                    	{% if form_status %}
-                    	<form class="lead" action="/convert" method="post">
-                    	    <img src="{{ img }}" alt="#" />
-                               <div class="form-group">
-		                            <button type="submit" class="btn btn-default">
-		                            	<span class="glyphicon glyphicon-Cog" aria-hidden="true"></span> Convert
-		                            </button>
-	                            </div>
-                    	</form>    
-                    	{% else %}
-                        <h1 class="cover-heading">{{ message }}.</h1>
-                        <form class="lead" action="/" enctype="multipart/form-data" method="post">
-                        	{% csrf_token %}
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="imageName" name="imageName" maxlength="40" placeholder="Image name" required>
-                            </div>
-                            <div class="form-inline">
-	                            <div class="form-group">
-	                                <input type="file" class="form-control" id="starterImage" name="starterImage" accept=".bmp,.gif,.jpg,.jpeg,.png" multiple=”false” required>
-	                            </div>               
-	                            <div class="form-group">
-		                            <button type="submit" class="btn btn-default">
-		                            	<span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload
-		                            </button>
-	                            </div>
-                            </div>
-                        </form>
-                        {% endif %}
+ 
                     </div>
                     <div class="mastfoot">
                         <div class="inner">
