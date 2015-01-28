@@ -22,7 +22,7 @@ class myCouch():
             self.db = couch[self.dbname]
             return self
         else:
-            return False            
+            return False #OR return missing_value for debuggging            
 
     def insert_doc(self):
         # Make sure we have what we need first.    
@@ -44,7 +44,7 @@ class myCouch():
             self.db.put_attachment(doc, content=file)
             return self
         else:
-            return False        
+            return False           
 
     def get_doc_by_id(self,id):
         doc = db[self.id]

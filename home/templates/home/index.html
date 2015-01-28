@@ -7,8 +7,9 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" href="../../favicon.ico">
-        <title>Django Site</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}" />
+        <title>Ascii Me Anything</title>
+        <link href='http://fonts.googleapis.com/css?family=Cousine:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <link rel="stylesheet" type="text/css" href="{% static 'home/css/cover.css' %}" />
@@ -38,36 +39,35 @@
                             </nav>
                         </div>
                     </div>
+
                     <div id="main-content" class="inner cover">
-                    	{% if form_status %}
-                    	<form class="lead" action="/convert" method="post">
-                    	    <img src="{{ img }}" alt="#" />
-                               <div class="form-group">
-		                            <button type="submit" class="btn btn-default">
-		                            	<span class="glyphicon glyphicon-Cog" aria-hidden="true"></span> Convert
-		                            </button>
-	                            </div>
-                    	</form>    
-                    	{% else %}
-                        <h1 class="cover-heading">{{ message }}.</h1>
+                        <h1 class="cover-heading">{{ message }}</h1>
                         <form class="lead" action="/" enctype="multipart/form-data" method="post">
                         	{% csrf_token %}
+                            <!--
                             <div class="form-group">
                                 <input type="text" class="form-control" id="imageName" name="imageName" maxlength="40" placeholder="Image name" required>
                             </div>
+                           -->
                             <div class="form-inline">
 	                            <div class="form-group">
 	                                <input type="file" class="form-control" id="starterImage" name="starterImage" accept=".bmp,.gif,.jpg,.jpeg,.png" multiple=”false” required>
 	                            </div>               
 	                            <div class="form-group">
-		                            <button type="submit" class="btn btn-default">
+		                            <button id="form_submit" type="submit" class="btn btn-default">
 		                            	<span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload
 		                            </button>
 	                            </div>
                             </div>
                         </form>
-                        {% endif %}
-                    </div>
+                        <div id='asc-content'>
+							{% if form_status %}
+							<pre class="output">
+{{ ascii_data }}	 
+							</pre> 
+							{% endif %}
+                        </div>
+                    </div>                    
                     <div class="mastfoot">
                         <div class="inner">
                             <p>All rights reserved.</p>
@@ -80,5 +80,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script src="{% static 'home/js/docs.min.js' %}"></script>
         <script src="{% static 'home/js/ie10-viewport-bug-workaround.js' %}"></script>
+        <script src="{% static 'home/js/default.js' %}"></script>
     </body>
 </html>
