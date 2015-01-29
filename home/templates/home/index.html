@@ -23,56 +23,29 @@
         <div class="site-wrapper">
             <div class="site-wrapper-inner">
                 <div class="cover-container">
-                    <div class="masthead clearfix">
-                        <div class="inner">
-                            <!--
-                            <h3 class="masthead-brand"><a href="/"></a></h3>
-                            -->
-                            <nav>
-                                <!--
-                                <ul class="nav masthead-nav">
-                                    <li class="active"><a href="#">Home</a></li>
-                                    <li><a href="#">Features</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                </ul>
-                                -->
-                            </nav>
-                        </div>
-                    </div>
-
-                    <div id="main-content" class="inner cover">
+                    <div id="main-content" class="inner cover">                        
                         <h1 class="cover-heading">{{ message }}</h1>
                         <form class="lead" action="/" enctype="multipart/form-data" method="post">
-                        	{% csrf_token %}
-                            <!--
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="imageName" name="imageName" maxlength="40" placeholder="Image name" required>
-                            </div>
-                           -->
+                            {% csrf_token %}
                             <div class="form-inline">
-	                            <div class="form-group">
-	                                <input type="file" class="form-control" id="starterImage" name="starterImage" accept=".bmp,.gif,.jpg,.jpeg,.png" multiple=”false” required>
-	                            </div>               
-	                            <div class="form-group">
-		                            <button id="form_submit" type="submit" class="btn btn-default">
-		                            	<span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload
-		                            </button>
-	                            </div>
+                                <div class="form-group">
+                                    <input type="file" class="form-control" id="starterImage" name="starterImage" accept=".bmp,.gif,.jpg,.jpeg,.png" multiple=”false” required>
+                                </div>               
+                                <div class="form-group">
+                                    <button id="form_submit" type="submit" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Convert
+                                    </button>
+                                </div>
                             </div>
-                        </form>
-                        <div id='asc-content'>
-							{% if form_status %}
-							<pre class="output">
-{{ ascii_data }}	 
-							</pre> 
-							{% endif %}
-                        </div>
+                        </form>                        
+                        {% if form_status %} 
+                        <div id='asc-content'>                          
+                            <textarea id="ascii-image" class="output">
+{{ ascii_data }}     
+                            </textarea>
+                        </div>                         
+                    {% endif %}
                     </div>                    
-                    <div class="mastfoot">
-                        <div class="inner">
-                            <p>All rights reserved.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -80,6 +53,5 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script src="{% static 'home/js/docs.min.js' %}"></script>
         <script src="{% static 'home/js/ie10-viewport-bug-workaround.js' %}"></script>
-        <script src="{% static 'home/js/default.js' %}"></script>
     </body>
 </html>

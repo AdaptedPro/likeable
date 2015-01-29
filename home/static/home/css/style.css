@@ -1,4 +1,12 @@
+textarea#ascii-image {
+	width:550px;
+	height: 750px;
+	color: #333;
+	resize:none;
+}
+
+h1,h2,h3,h4,h5 { font-family: "Lucida Console", Monaco, monospace; }
 .output {
 	font-family: "Lucida Console", Monaco, monospace;
-	font-size: 10px;	
+	font-size: 8px;	
 }

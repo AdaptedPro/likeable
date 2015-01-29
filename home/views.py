@@ -33,7 +33,8 @@ def _index(request):
         ascii            = myAscii()
         ascii.image_path = path   
         ascii_data       = ascii.convert()
-        form_status = True                             
+        form_status = True 
+#         SAVE DOCUMENT IN COUCH
 #         form = UploadFileForm(request.POST, request.FILES)
 #         if form.is_valid():  
 #             couch              = myCouch()
@@ -65,20 +66,19 @@ def _index(request):
     template = loader.get_template('home/index.html')    
     return HttpResponse(template.render(context))
 
-def convert(request,doc_id):
-    message            = ''
-    couch              = myCouch()
-    couch.dbname       = dbname
-    couch.COUCH_SERVER = dbserver
-    couch.id           = doc_id
-    img_url            = couch.get_doc_image_by_id()
-    ascii              = myAscii()
-    ascii.image_page   = img_url    
-    ascii_result       = ascii.convert()
+def download(request,doc_id):
+    message            = 'test'
+#     couch              = myCouch()
+#     couch.dbname       = dbname
+#     couch.COUCH_SERVER = dbserver
+#     couch.id           = doc_id
+#     img_url            = couch.get_doc_image_by_id()
+#     ascii              = myAscii()
+#     ascii.image_page   = img_url    
+#     ascii_result       = ascii.convert()    
     context = RequestContext(request, {
-        'message': ascii_result,
-    })
-    
+        'message': message,
+    })    
     template = loader.get_template('home/converted.html')    
-    return HttpResponse(template.render(context)) 
+    return HttpResponse(template.render(context))
         
